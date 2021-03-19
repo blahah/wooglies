@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, Suspense } from 'react'
 import { PointerLockControls } from '@react-three/drei'
 import Peer from 'simple-peer'
 import io from 'socket.io-client'
@@ -7,6 +7,7 @@ import OtherPlayers from './OtherPlayers'
 import { useClientStore } from './useClientStore'
 import * as THREE from 'three'
 import generateName from './randomName'
+import Model from './Model'
 
 export default function Space(props) {
   const socketRef = useRef()
@@ -225,6 +226,9 @@ export default function Space(props) {
         lightThreeRef={lightThreeRef}
         volumetric={props.volumetricSelf}
       />
+      <Suspense fallback={null}>
+        <Model />
+      </Suspense>
     </>
   )
 }

@@ -57,7 +57,7 @@ export default function App() {
           document.getElementById('spacename').disabled = true
         })
       }}
-      style={{ background: '#000000' }}
+      style={{ background: 'black' }}
       gl={{ antialias: true }}
     >
       <Space
